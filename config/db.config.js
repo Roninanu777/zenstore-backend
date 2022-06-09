@@ -1,14 +1,18 @@
-const mongoose = require("mongoose");
+const db = require("../models/index");
+const Role = db.role;
 
 async function connect() {
   try {
-    let resp = mongoose.connect(process.env.NODE_ENV_MONGOURI, {
+    let resp = await db.mongoose.connect(process.env.NODE_ENV_MONGOURI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
     console.log("Database connected...");
+    initial();
+  } catch (err) {
+    console.error("Connection error", err);
+    process.exit();
   } finally {
-    await mongoose.connection.close();
   }
 }
 
