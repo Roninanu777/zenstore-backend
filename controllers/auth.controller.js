@@ -1,9 +1,12 @@
+//Package imports
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
+
+//File imports
 const config = require("../config/auth.config");
 const db = require("../models/index");
 const User = db.user;
 const Role = db.role;
-let jwt = require("jsonwebtoken");
-let bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
   const user = new User({
