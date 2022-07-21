@@ -2,12 +2,10 @@ require("dotenv").config();
 var createError = require("http-errors");
 var express = require("express");
 var cors = require("cors");
-var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 var dbConfig = require("./config/db.config");
-var db = require("./models/index");
 var authRouter = require("./routes/auth.routes");
 var userRouter = require("./routes/user.routes");
 
