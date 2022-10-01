@@ -36,7 +36,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // routes
-app.use("/", require("./routes/root"));
+//app.use("/", require("./routes/root"));
 app.use("/register", require("./routes/register"));
 app.use("/auth", require("./routes/auth"));
 app.use("/refresh", require("./routes/refresh"));
@@ -49,6 +49,6 @@ app.use("/users", require("./routes/api/users"));
 app.use(errorHandler);
 
 mongoose.connection.once("open", () => {
-  console.log("Connected to MongoDB");
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    console.log("Connected to MongoDB");
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
